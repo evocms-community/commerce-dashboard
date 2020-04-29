@@ -106,7 +106,7 @@ switch ($modx->event->name) {
             ]),
         );
 
-        $e->output(serialize($widgets));
+        $modx->event->output(serialize($widgets));
         break;
     }
 }
