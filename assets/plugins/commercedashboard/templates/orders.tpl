@@ -19,8 +19,8 @@
                         <td><?= isset($statuses[$order['status_id']]) ? $statuses[$order['status_id']] : '' ?></td>
                         <td class="text-xs-right"><?= $currency->format($order['amount'], !empty($order['currency']) ? $order['currency'] : $defaultCurrency) ?></td>
                         <td class="actions text-xs-right">
-                            <a href="<?= $moduleUrl ?>&route=orders/view&order_id=<?= $order['id'] ?>" title="<?= $lang['dashboard.view'] ?>"><i class="fa fa-eye fa-fw"></i></a>
-                            <a href="<?= $moduleUrl ?>&route=orders/edit&order_id=<?= $order['id'] ?>" title="<?= $lang['dashboard.edit'] ?>"><i class="fa fa-edit fa-fw"></i></a>
+                            <a href="<?= $moduleUrl ?>&type=orders/view&order_id=<?= $order['id'] ?>" title="<?= $lang['dashboard.view'] ?>"><i class="fa fa-eye fa-fw"></i></a>
+                            <a href="<?= $moduleUrl ?>&type=orders/edit&order_id=<?= $order['id'] ?>" title="<?= $lang['dashboard.edit'] ?>"><i class="fa fa-edit fa-fw"></i></a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
