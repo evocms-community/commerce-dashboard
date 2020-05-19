@@ -62,11 +62,14 @@ switch ($modx->event->name) {
 
         $moduleid = $modx->db->getValue($modx->db->select('id', $modx->getFullTablename('site_modules'), "name = 'Commerce'"));
 
-        $query = $modx->db->select('id, title', $modx->getFullTablename('commerce_order_statuses'));
+        $query = $modx->db->select('id, title, color', $modx->getFullTablename('commerce_order_statuses'));
         $statuses = [];
 
         while ($row = $modx->db->getRow($query)) {
-            $statuses[$row['id']] = $row['title'];
+            $statuses[$row['id']] = [
+                'title' => $row['title'],
+                'color' => !empty($row['color']) ? $row['color'] : 'FFFFFF'
+            ];
         }
 
         $lexicon = new Helpers\Lexicon($modx, [

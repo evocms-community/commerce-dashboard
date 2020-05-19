@@ -16,7 +16,11 @@
                     <tr>
                         <td><?= $order['id'] ?></td>
                         <td><?= (new \DateTime($order['created_at']))->format('d.m.Y') ?></td>
-                        <td><?= isset($statuses[$order['status_id']]) ? $statuses[$order['status_id']] : '' ?></td>
+                        <?php if(isset($statuses[$order['status_id']])): ?>
+                            <td style="white-space: nowrap;"><i class="status-color fa fa-circle" style="color:#<?= $statuses[$order['status_id']]['color'] ?>"></i> <?=  $statuses[$order['status_id']]['title'] ?></td>
+                        <?php else: ?>
+                            <td></td>
+                        <?php endif; ?>
                         <td class="text-xs-right"><?= $currency->format($order['amount'], !empty($order['currency']) ? $order['currency'] : $defaultCurrency) ?></td>
                         <td class="actions text-xs-right">
                             <a href="<?= $moduleUrl ?>&type=orders/view&order_id=<?= $order['id'] ?>" title="<?= $lang['dashboard.view'] ?>"><i class="fa fa-eye fa-fw"></i></a>
