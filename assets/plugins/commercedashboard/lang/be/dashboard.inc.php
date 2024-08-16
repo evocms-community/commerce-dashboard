@@ -3,8 +3,8 @@
 setlocale(LC_ALL, 'ru_RU.UTF-8');
 
 return [
-    'dashboard.charts_title' => 'Графік заказаў',
-    'dashboard.list_title' => 'Апошнія 15 заказаў',
+    'dashboard.charts_title' => 'Графік замоваў',
+    'dashboard.list_title' => 'Апошнія 15 замоваў',
     'dashboard.date' => 'Дата',
     'dashboard.status' => 'Статус',
     'dashboard.amount' => 'Сума',

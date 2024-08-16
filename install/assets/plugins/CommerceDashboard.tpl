@@ -5,7 +5,7 @@
  * Simple Commerce dashboard
  *
  * @category    plugin
- * @version     0.1.1
+ * @version     0.2.1
  * @author      mnoskov
  * @internal    @events OnManagerWelcomeHome
  * @internal    @modx_category Commerce
@@ -62,13 +62,12 @@ switch ($modx->event->name) {
 
         $moduleid = $modx->db->getValue($modx->db->select('id', $modx->getFullTablename('site_modules'), "name = 'Commerce'"));
 
-        $query = $modx->db->select('id, title, color', $modx->getFullTablename('commerce_order_statuses'));
         $statuses = [];
-
-        while ($row = $modx->db->getRow($query)) {
+        foreach(ci()->statuses->getStatuses() as $row) {
             $statuses[$row['id']] = [
                 'title' => $row['title'],
-                'color' => !empty($row['color']) ? $row['color'] : 'FFFFFF'
+                'color' => !empty($row['color']) ? $row['color'] : 'FFFFFF',
+                'alias' => $row['alias']
             ];
         }
 
@@ -78,7 +77,9 @@ switch ($modx->event->name) {
         ]);
 
         $view = new Commerce\Module\Renderer($modx, null, ['path' => MODX_BASE_PATH . 'assets/plugins/commercedashboard/templates']);
-        $lang = $lexicon->loadLang('dashboard');
+        $lexicon->fromFile('order', $modx->getLocale(), 'assets/plugins/commerce/lang/');
+        $lexicon->fromFile('dashboard');
+        $lang = $lexicon->getLexicon();
         $view->setLang($lang);
 
         $widgets['commercecharts'] = array(

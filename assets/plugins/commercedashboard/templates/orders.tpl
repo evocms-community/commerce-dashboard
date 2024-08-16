@@ -17,7 +17,7 @@
                         <td><?= $order['id'] ?></td>
                         <td><?= (new \DateTime($order['created_at']))->format('d.m.Y') ?></td>
                         <?php if(isset($statuses[$order['status_id']])): ?>
-                            <td style="white-space: nowrap;"><i class="status-color fa fa-circle" style="color:#<?= $statuses[$order['status_id']]['color'] ?>"></i> <?=  $this->lang[$statuses[$order['status_id']]['alias']] ?? $statuses[$order['status_id']]['title'] ?></td>
+                            <td style="white-space: nowrap;"><i class="status-color fa fa-circle" style="color:#<?= $statuses[$order['status_id']]['color'] ?>"></i> <?=  $lang[$statuses[$order['status_id']]['alias']] ?? $statuses[$order['status_id']]['title'] ?></td>
                         <?php else: ?>
                             <td></td>
                         <?php endif; ?>
