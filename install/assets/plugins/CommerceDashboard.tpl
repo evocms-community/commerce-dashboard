@@ -74,7 +74,7 @@ switch ($modx->event->name) {
 
         $lexicon = new Helpers\Lexicon($modx, [
             'langDir' => 'assets/plugins/commercedashboard/lang/',
-            'lang'    => $modx->getConfig('manager_language'),
+            'lang'    => $modx->getLocale(),
         ]);
 
         $view = new Commerce\Module\Renderer($modx, null, ['path' => MODX_BASE_PATH . 'assets/plugins/commercedashboard/templates']);
