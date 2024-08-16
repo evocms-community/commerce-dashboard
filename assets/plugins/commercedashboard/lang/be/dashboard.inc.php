@@ -13,6 +13,6 @@ return [
     'dashboard.thousands' => 'тыс.',
     'dashboard.amounts_current_month' => 'Сума ў бягучым месяцы',
     'dashboard.amounts_prev_month' => 'Сума ў папярэднім месяцы',
-    'dashboard.count_current_month' => 'Заказы ў бягучым месяцы',
-    'dashboard.count_prev_month' => 'Заказы ў папярэднім месяцы',
+    'dashboard.count_current_month' => 'Замовы ў бягучым месяцы',
+    'dashboard.count_prev_month' => 'Замовы ў папярэднім месяцы',
 ];
