@@ -10,6 +10,7 @@
  * @internal    @events OnManagerWelcomeHome
  * @internal    @modx_category Commerce
  * @internal    @installset base
+ * @internal    @properties &cchartsposition=Chart widget position:;text;0 &cchartssizex=Chart widget width:;list;12,6,4,3;6 &cordersposition=Orders widget position:;text;1 &corderssizex=Orders widget width:;list;12,6,4,3;6
 */
 
 if (empty($modx->commerce) && !defined('COMMERCE_INITIALIZED')) {
@@ -83,9 +84,9 @@ switch ($modx->event->name) {
         $view->setLang($lang);
 
         $widgets['commercecharts'] = array(
-            'menuindex' => 0,
+            'menuindex' => $cchartsposition,
             'id'        => 'commercecharts',
-            'cols'      => 'col-lg-6',
+            'cols'      => 'col-lg-'.$cchartssizex.'',
             'icon'      => 'fa-bar-chart-o',
             'title'     => $lang['dashboard.charts_title'],
             'body'      => $view->render('charts.tpl', [
@@ -96,9 +97,9 @@ switch ($modx->event->name) {
         );
 
         $widgets['commerceorders'] = array(
-            'menuindex' => 1,
+            'menuindex' => $cordersposition,
             'id'        => 'commerceorders',
-            'cols'      => 'col-lg-6',
+            'cols'      => 'col-lg-'.$corderssizex.'',
             'icon'      => 'fa-list',
             'title'     => $lang['dashboard.list_title'],
             'body'      => $view->render('orders.tpl', [
